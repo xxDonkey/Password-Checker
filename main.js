@@ -22,26 +22,22 @@ const COMMON_PASSWORDS = [
     "2000",
 ]
 
-const OK = /^(?=.*[a-z])(?=.*[0-9])(?=.*[0-9])(?=.*[(!@#$%^&*(])[!-~]{8,}$/g
-const GOOD = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[0-9])(?=.*[(!@#$%^&*(])[!-~]{12,}$/
+const OK = /^(?=.*[a-z])(?=.*[0-9])(?=.*[(!@#$%^&*(])[!-~]{8,}$/g
+const GOOD = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[(!@#$%^&*(])[!-~]{12,}$/
 
 // computes password strength
 const get_pword_str = (password) => {
+    if (password.length == 0) { return 0 }
+
     let str = 1
     
     if (COMMON_PASSWORDS.includes(password))
-    {
-        return str
-    }
+    { return str }
 
     if (password.match(GOOD))
-    {
-        str = 3
-    }
+    { str = 3 }
     else if (password.match(OK))
-    {
-        str = 2
-    }
+    { str = 2 }
 
     return str
 }
@@ -52,7 +48,13 @@ const get_pword_str = (password) => {
 // 3 (green) - yellow requirements plus 1 capital, 12+ characters
 const update_pword_str = (password_input, output) => {
     let password = password_input.value
-    output.innerText = (password == "" ? "" : get_pword_str(password))
+    let str = get_pword_str(password)
+    
+    for (let i = 1; i <= 3; i++)
+    {
+        let curr_indicator = document.getElementById("str" + i)
+        curr_indicator.hidden = (i > str)
+    }
 }
 
 // called on page load
