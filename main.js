@@ -1,3 +1,17 @@
+/*
+1. Describe the purpose, function, and input and output of your program. 
+The purpose of the program is to check whether a given password is weak, moderately strong, or strong. It can also generate a strong password for you.
+Its inputs are a password to check and whether or not to generate, and its outputs are either the strength or the generated password.
+
+2. How did you use abstraction in you code?
+I abstraced the password strength evaluation as well as updating the displaying of the strength to their own functions.
+I also abstraced the password generation to its own method. When the generate button is pressed, it simply calls the function, and sets the value to the new password.
+
+3. How did you manage complexity by using arrays & loops? (I.e. how did you avoid using making your code repetitive and complicated by using arrays and loops?) 
+I used the SetInverval built-in function to call my update strength function 20 times per second. This made it easy as opposed to writing my own while true loop.
+In addition, while 
+*/
+
 // Taken from first entries of: https://github.com/danielmiessler/SecLists/blob/master/Passwords/Common-Credentials/10k-most-common.txt
 const COMMON_PASSWORDS = [
     "password",
