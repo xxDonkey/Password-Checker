@@ -9,10 +9,33 @@
     <title>Password Checker</title>
 </head>
 <body onload="onload()">
-    <input type="text" id="password">
-    <img id="str1" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpQ9MmEOTkmREHxvVTsyjukg7Y0FHCu54bALk0BnGCjobGfqKm8I9Uqtg7hWEphpEHC-U:https://www.iconsdb.com/icons/download/red/square-256.gif&usqp=CAU" width=32 height=32 hidden>
-    <img id="str2" src="https://www.lockwoodmathewsmansion.com/wp-content/uploads/2017/05/yellow-square-225x225.jpg" width=32 height=32 hidden>
-    <img id="str3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Green_square.svg/1200px-Green_square.svg.png" width=32 height=32 hidden>
-    <span id="str"></span>
+    <div class="banner">
+        <div class="banner">
+            <span id="name">Password Checker</span>
+        </div>
+        <div class="banner" id="right">
+            <a id="github" href="https://github.com/xxDonkey/Museum-Ticket-Generator">Github</a>
+        </div>
+    </div>
+
+    <div class="input">
+        <span class="info">
+            Passwords are the foundation of our modern world. They are the locks that proctect our information.<br>
+            But can we trust what protects our whole lives? Using this tool, you can find out!
+        </span><br>
+        <img class="dec" src="https://www.pngkit.com/png/detail/221-2211893_closed-lock-with-key-lock-and-key-emoji.png" width=410 height=276><br>
+        <span class="prompt">
+            Enter your password here to be checked!<br>
+            Or click "Generate Strong Password" to randomly generate strong password.
+        </span><br>
+        <input type="text" id="password">
+        <button onClick="on_generate_button()">Generate Strong Password</button>
+    </div>
+    <div class="indicator">
+        <img class="indc" id="str1" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpQ9MmEOTkmREHxvVTsyjukg7Y0FHCu54bALk0BnGCjobGfqKm8I9Uqtg7hWEphpEHC-U:https://www.iconsdb.com/icons/download/red/square-256.gif&usqp=CAU" width=32 height=32 hidden>
+        <img class="indc" id="str2" src="https://www.lockwoodmathewsmansion.com/wp-content/uploads/2017/05/yellow-square-225x225.jpg" width=32 height=32 hidden>
+        <img class="indc" id="str3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Green_square.svg/1200px-Green_square.svg.png" width=32 height=32 hidden>
+        <span id="str"></span>
+    </div>
 </body>
 </html>

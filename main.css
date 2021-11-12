@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+body {
+    padding: 0;
+    margin: 0;
+    font-size: 26px;
+    font-family: 'Work Sans', sans-serif;
+    background-color: #d1e3ff; 
+}
+
+div.banner {
+    height: 60px;
+    background-color: #2157a1;   
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#logo {
+    padding-left: 10px;
+    padding-right: 15px;
+    border-radius: 50%;
+}
+
+#right {
+    margin-left: auto;
+}
+
+#name {
+    padding-left: 10px;
+    padding-right: 15px;
+}
+
+.input {
+    text-align: center;
+    padding-top: 40px;
+}
+
+.indicator {
+    text-align: center;
+    padding-top: 30px;
+}
+
+#github {
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 10px;
+}
+
+#password {
+    width: 180px;
+}
+
+.dec {
+    padding-top: 45px;
+    padding-bottom: 30px;
+}
+
+.prompt {
+    font-size: 20px;
+}
+
+.indc {
+    border-radius: 10%;
+}
+
+.info {
+    font-size: 22px;
+}

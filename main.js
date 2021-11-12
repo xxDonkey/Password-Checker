@@ -22,7 +22,16 @@ const COMMON_PASSWORDS = [
     "2000",
 ]
 
+// Character pool for generation
+const CHARACTER_POOL = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789(!@#$%^&*('
+
+// Will match if password has: at least 8 characters, at least 1 lower case letter,
+// at least one digit, and at least one special character in the set ((!@#$%^&*(])
 const OK = /^(?=.*[a-z])(?=.*[0-9])(?=.*[(!@#$%^&*(])[!-~]{8,}$/g
+
+// Will match if password has: at least 12 characters, at least 1 lower case letter,
+// at least 1 upper case letter, at least one digit, and at least one special character 
+// in the set ((!@#$%^&*(])
 const GOOD = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[(!@#$%^&*(])[!-~]{12,}$/
 
 // computes password strength
@@ -62,5 +71,37 @@ const onload = () => {
     let password_input = document.getElementById("password")
     let password_str = document.getElementById("str")
     setInterval(update_pword_str, 1000.0 / 20.0, password_input, password_str)
-    
+}
+
+// Causes the website to crash if it is spammed, prolly don't do that
+// Called when the `Generate Strong Password` button is pressed
+const on_generate_button = () => {
+    let password = generate_password(12)
+    let output = document.getElementById("password")
+    output.value = password
+}
+
+// Finds a password with a strength of 3, and returns it.
+const generate_password = (len) => {
+    let password = __generate_password(len)
+    let str = get_pword_str(password)
+    while (str < 3)
+    {
+        console.log('recalculating...')
+        password = __generate_password(len)
+        str = get_pword_str(password)
+    }
+    return password
+}
+
+// Generates a password of `len` characters from `CHARACTER_POOL`
+const __generate_password = (len) => {
+    let password = ''
+    for (let i = 0; i < len; i++)
+    {
+        const rnd = Math.round(Math.random() * CHARACTER_POOL.length)
+        const ch = CHARACTER_POOL.charAt(rnd)
+        password += ch
+    }
+    return password
 }
